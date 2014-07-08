@@ -1,6 +1,7 @@
 var Background = require("./Background");
 var Player = require("./entity/Player");
 var KeyHandler = require("./KeyHandler");
+var MapManager = require("./MapManager");
 
 function Scroller(stage, gameContext) {
     this.gameContext = gameContext;
@@ -9,6 +10,8 @@ function Scroller(stage, gameContext) {
 
     this.keyHandler = new KeyHandler();
     this.keyHandler.install();
+    this.mapManager = new MapManager();
+    this.mapManager.loadLevel();
 
     this.background = new Background(this.gameContext);
     this.player = new Player(this.gameContext);
@@ -40,12 +43,8 @@ Scroller.prototype.moveViewportXBy = function(units) {
     this.setViewportX(newViewportX);
 };
 
-
 Scroller.prototype.update = function() {
     this.moveViewportXBy(this.scrollSpeed);
-
-
-
-}
+};
 
 module.exports = Scroller;
