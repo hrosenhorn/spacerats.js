@@ -5,7 +5,7 @@ var GameContext = require("./GameContext");
 function Main() {
 
     this.gameContext = new GameContext(window.innerWidth, window.innerHeight);
-    this.stage = new PIXI.Stage(0xFFFF99);
+    this.stage = new PIXI.Stage(0x000000);
     this.renderer = new PIXI.autoDetectRenderer(
         this.gameContext.windowWidth,
         this.gameContext.windowHeight,
