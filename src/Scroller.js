@@ -1,7 +1,7 @@
 var Background = require("./Background");
 var Player = require("./entity/Player");
 var KeyHandler = require("./KeyHandler");
-var MapManager = require("./MapManager");
+var ObstacleManager = require("./ObstacleManager");
 
 function Scroller(stage, gameContext) {
     this.gameContext = gameContext;
@@ -10,8 +10,7 @@ function Scroller(stage, gameContext) {
 
     this.keyHandler = new KeyHandler();
     this.keyHandler.install();
-    this.mapManager = new MapManager();
-    this.mapManager.loadLevel();
+    this.obstacleManager = new ObstacleManager(stage, this.gameContext);
 
     this.background = new Background(this.gameContext);
     this.player = new Player(this.gameContext);
@@ -31,7 +30,7 @@ Scroller.prototype.setViewportX = function(viewportX) {
     this.viewportX = viewportX;
 
     this.background.setViewportX(viewportX);
-    //this.player.setViewportX(viewportX);
+    this.obstacleManager.setViewportX(viewportX);
 };
 
 Scroller.prototype.getViewportX = function() {
