@@ -1,24 +1,20 @@
 var PIXI = require("../../thirdparty/pixi.dev");
+var Obstacle = require("../Obstacle");
 
 function Player(gameContext) {
     this.gameContext = gameContext;
 
-    PIXI.MovieClip.call(this, [
+    Obstacle.call(this, gameContext, [
         PIXI.Texture.fromImage("assets/entity/player-small.png"),
         PIXI.Texture.fromImage("assets/entity/player-small2.png")
     ]);
 
     this.position.x = 50;
     this.position.y = this.gameContext.windowHeight / 2;
-
-
-    this.animationSpeed = 0.05;
-    this.gotoAndPlay(0);
-    this.viewportX = 0;
 }
 
 Player.constructor = Player;
-Player.prototype = Object.create(PIXI.MovieClip.prototype);
+Player.prototype = Object.create(Obstacle.prototype);
 
 Player.DELTA_X = 0.024;
 Player.SPEED = 5;
