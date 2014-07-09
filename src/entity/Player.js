@@ -11,6 +11,7 @@ function Player(gameContext) {
 
     this.position.x = 50;
     this.position.y = this.gameContext.windowHeight / 2;
+    this.setActive();
 }
 
 Player.constructor = Player;
