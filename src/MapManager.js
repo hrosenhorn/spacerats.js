@@ -1,5 +1,7 @@
 var _ = require("underscore");
 var Player = require("./entity/Player");
+var PropellerRat = require("./entity/enemy/PropellerRat");
+
 
 function MapManager(gameContext) {
     this.gameContext = gameContext;
@@ -23,7 +25,7 @@ var map = [
 ];
 
 var ObstacleLookup = {
-    "r": Player
+    "r": PropellerRat
 };
 
 MapManager.prototype.getObstacles = function () {
@@ -55,7 +57,6 @@ MapManager.prototype.loadLevel = function() {
             }
         }
     }
-
 };
 
 module.exports = MapManager;

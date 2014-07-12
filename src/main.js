@@ -23,7 +23,10 @@ Main.prototype.update = function() {
 };
 
 Main.prototype.loadAssets = function() {
-    var assetsToLoad = ["assets/background.gif", "assets/entity/player-small.png"];
+    var assetsToLoad = [
+        "assets/background.gif",
+        "assets/entity/player-small.png",
+        "assets/entity/enemy/propellerrat.json"];
     loader = new PIXI.AssetLoader(assetsToLoad);
     loader.onComplete = this.assetsLoaded.bind(this);
     loader.load();
