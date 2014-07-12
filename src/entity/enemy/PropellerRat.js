@@ -11,7 +11,6 @@ function PropellerRat(gameContext) {
 
     Obstacle.call(this, gameContext, textures);
     this.animationSpeed = 1;
-
 }
 
 PropellerRat.constructor = PropellerRat;

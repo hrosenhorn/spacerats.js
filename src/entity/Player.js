@@ -5,8 +5,8 @@ function Player(gameContext) {
     this.gameContext = gameContext;
 
     Obstacle.call(this, gameContext, [
-        PIXI.Texture.fromImage("assets/entity/player-small.png"),
-        PIXI.Texture.fromImage("assets/entity/player-small2.png")
+        PIXI.Texture.fromFrame("player-small.png"),
+        PIXI.Texture.fromFrame("player-small2.png")
     ]);
 
     this.position.x = 50;
