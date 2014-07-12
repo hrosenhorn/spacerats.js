@@ -46,9 +46,9 @@ MapManager.prototype.loadLevel = function() {
         for (var slice = 0; slice < this.slices; slice++) {
             var entry = map[slice][index];
 
-            var obstable = ObstacleLookup[entry];
-            if (obstable) {
-                var o = new obstable(this.gameContext);
+            var obstacle = ObstacleLookup[entry];
+            if (obstacle) {
+                var o = new obstacle(this.gameContext);
                 o.setInActive();
                 o.position.y = this.laneHeight * slice + this.laneHeight;
                 this.obstables[index].push(o)
