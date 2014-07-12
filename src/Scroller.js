@@ -10,7 +10,7 @@ function Scroller(stage, gameContext) {
 
     this.keyHandler = new KeyHandler();
     this.keyHandler.install();
-    this.obstacleManager = new ObstacleManager(stage, this.gameContext);
+    this.obstacleManager = new ObstacleManager(this.gameContext);
 
     this.background = new Background(this.gameContext);
     this.player = new Player(this.gameContext);
@@ -22,9 +22,10 @@ function Scroller(stage, gameContext) {
 
     stage.addChild(this.background);
     stage.addChild(this.player);
+    stage.addChild(this.obstacleManager);
 }
 
-Scroller.MIN_SCROLL_SPEED = 5;
+Scroller.MIN_SCROLL_SPEED = 2;
 
 Scroller.prototype.setViewportX = function(viewportX) {
     this.viewportX = viewportX;
