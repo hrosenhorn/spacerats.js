@@ -2,9 +2,10 @@ var _ = require("underscore");
 var PIXI = require("../thirdparty/pixi.dev");
 var MapManager = require("./MapManager");
 
-function ObstacleManager(gameContext) {
+function ObstacleManager(gameContext, player) {
     PIXI.DisplayObjectContainer.call(this);
     this.gameContext = gameContext;
+    this.player = player;
     this.obstacles = [];
     this.viewportX = 0;
 
@@ -31,6 +32,21 @@ ObstacleManager.prototype.setViewportX = function (viewportX) {
 
     this.removeOldSlices(prevViewportSliceX);
     this.addNewSlices();
+    this.checkCollision();
+};
+
+ObstacleManager.prototype.checkCollision = function () {
+  // We only bother checking if player or
+
+    for (var i = this.viewportSliceX, sliceIndex = 0;
+         i < this.viewportSliceX + this.VIEWPORT_NUM_SLICES;
+         i++, sliceIndex++)
+    {
+        var enemies = this.obstacles[i];
+        _.each(enemies, function (obstacle) {
+
+        });
+    }
 };
 
 ObstacleManager.prototype.addNewSlices = function () {

@@ -10,10 +10,10 @@ function Scroller(stage, gameContext) {
 
     this.keyHandler = new KeyHandler();
     this.keyHandler.install();
-    this.obstacleManager = new ObstacleManager(this.gameContext);
+    this.player = new Player(this.gameContext);
+    this.obstacleManager = new ObstacleManager(this.gameContext, this.player);
 
     this.background = new Background(this.gameContext);
-    this.player = new Player(this.gameContext);
 
     this.keyHandler.subscribe(KeyHandler.W, this.player.moveUp.bind(this.player), true);
     this.keyHandler.subscribe(KeyHandler.S, this.player.moveDown.bind(this.player), true);
