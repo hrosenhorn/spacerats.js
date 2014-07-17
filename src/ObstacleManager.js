@@ -35,6 +35,16 @@ ObstacleManager.prototype.setViewportX = function (viewportX) {
     this.checkCollision();
 };
 
+
+ObstacleManager.prototype.collides = function (o1, o2) {
+    var dx = Math.round(o1.position.x - o2.position.x);
+    var dy = Math.round(o1.position.y - o2.position.y);
+
+    var minDistance = o1.getBoundingRadius() + o2.getBoundingRadius();
+
+    return dx * dx + dy * dy < minDistance * minDistance;
+};
+
 ObstacleManager.prototype.checkCollision = function () {
   // We only bother checking if player or
 
@@ -43,8 +53,11 @@ ObstacleManager.prototype.checkCollision = function () {
          i++, sliceIndex++)
     {
         var enemies = this.obstacles[i];
+        var self = this;
         _.each(enemies, function (obstacle) {
-
+            if (self.collides(self.player, obstacle)) {
+                obstacle.explode();
+            }
         });
     }
 };
