@@ -17,19 +17,7 @@ function Player(gameContext) {
 Player.constructor = Player;
 Player.prototype = Object.create(Obstacle.prototype);
 
-Player.DELTA_X = 0.024;
 Player.SPEED = 5;
-
-Player.prototype.setViewportX = function (newViewportX) {
-    var distanceTravelled = newViewportX - this.viewportX;
-    this.viewportX = newViewportX;
-
-    this.position.x -= (distanceTravelled * 1);
-    if (this.position.x <= 1) {
-        this.position.x = 1;
-    }
-    //console.log("Position x is", this.position.x);
-};
 
 Player.prototype.move = function (deltaX, deltaY) {
     this.position.x += deltaX;
@@ -50,7 +38,6 @@ Player.prototype.move = function (deltaX, deltaY) {
     if (this.position.y > this.gameContext.windowHeight) {
         this.position.y = this.gameContext.windowHeight
     }
-
 };
 
 Player.prototype.moveUp = function () {
