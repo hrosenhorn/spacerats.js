@@ -25,6 +25,7 @@ Main.prototype.update = function() {
 Main.prototype.loadAssets = function() {
     var assetsToLoad = [
         "assets/background.gif",
+        "assets/smack.png",
         "assets/entity/player.json",
         "assets/entity/enemy/propellerrat.json"];
     loader = new PIXI.AssetLoader(assetsToLoad);
